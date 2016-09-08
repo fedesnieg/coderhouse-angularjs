@@ -1,0 +1,10 @@
+<thead>
+    <tr>
+        <th ng-repeat="(key, value) in rows[0]">{{key | uppercase}}</th>
+        <th>Edit</th>
+        <th>Delete</th>
+    </tr>
+</thead>
+<tbody>
+    <tr ng-repeat="row in rows" my-row data="row" edit-fc="editFc()" remove-fc="removeFc()"></tr>
+</tbody>

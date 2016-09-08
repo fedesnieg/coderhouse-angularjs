@@ -4,7 +4,27 @@ angular.module('myAppApp')
   .controller('ProductsCtrl', function ($scope, productService, $uibModal, $filter) {
     $scope.products = productService.get();
 
-    $scope.edit = function(product) {
+    $scope.clients = [
+    	{id: 1, name: 'Fede', apellido: 'Snieg'},
+    	{id: 2, name: 'Macri', apellido: 'Matias'},
+    	{id: 3, name: 'Diego', apellido: 'Villagran'}
+    ];
+
+    $scope.person1 = {
+    	name: 'Diego',
+    	text: 'Hola!'
+    };
+
+    $scope.person2 = {
+    	name: 'Matias',
+    	text: 'Que haces!'
+    };
+
+    $scope.showAlert = function() {
+    	alert("hola!");
+    };
+
+    $scope.editProduct = function(product) {
     	var modalInstance = $uibModal.open({
 	      templateUrl: 'views/productDetail.html',
 	      controller: 'productDetailCtrl',
@@ -18,8 +38,16 @@ angular.module('myAppApp')
  		});
     };
 
-    $scope.remove = function(productId) {
+    $scope.removeProduct = function(productId) {
     	productService.remove(productId);
+    };
+
+    $scope.editClient = function(client) {
+    	alert("No se implementó la funcion. Estamos editando: " + JSON.stringify(client));
+    };
+
+    $scope.removeClient = function(clientId) {
+    	alert("No se implementó la funcion. Estamos eliminando: " + clientId);
     };
 
   });

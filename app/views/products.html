@@ -2,28 +2,17 @@
     <div class="col-lg-12">
         <h2>Tabla de Productos</h2>
         <div class="table-responsive">
-            <table class="table table-bordered table-hover">
-                <thead>
-                    <tr>
-                        <th>Id</th>
-                        <th>Producto</th>
-                        <th>Stock</th>
-                        <th>Precio</th>
-                        <th>Ver detalle</th>
-                        <th>Eliminar</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="product in products">
-                        <td>{{product.id}}</td>
-                        <td>{{product.name | snakeCase : ' ---- '}}</td>
-                        <td>{{product.stock}}</td>
-                        <td>{{product.price | currency}}</td>
-                        <td> <a ng-click="edit(product)">Editar</a></td>
-                        <td> <a ng-click="remove(product.id)">Eliminar</a></td>
-                    </tr>
-                </tbody>
+            <table class="table table-bordered table-hover" my-table edit-fc="editProduct" remove-fc="removeProduct" rows="products">  
+            </table>
+        </div>
+        <h2>Tabla de Clientes</h2>
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover" my-table edit-fc="editClient" remove-fc="removeClient" rows="clients">  
             </table>
         </div>
     </div>
+</div>
+<div>
+    <div my-directive person="person1" on-click-handler="showAlert()"></div>
+    <div my-directive person="person2"></div>
 </div>
