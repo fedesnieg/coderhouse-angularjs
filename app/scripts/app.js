@@ -18,7 +18,19 @@ angular
     'ngTouch',
     'ui.bootstrap'
   ])
-  .config(function ($routeProvider) {
+
+  .constant(
+    "productTypes", 
+    [
+      {id: 1, tipo: "Limpieza"}, 
+      {id: 2, tipo: "Electrónico"}
+    ]
+  )
+  .value(
+    "lang", "es-AR"
+  )
+
+  .config(function ($routeProvider, maxStockProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
@@ -34,7 +46,17 @@ angular
         templateUrl: 'views/products.html',
         controller: 'ProductsCtrl'
       })
+      .when('/movies', {
+        templateUrl: 'views/movies.html',
+        controller: 'MoviesCtrl'
+      })
+      .when('/movie/:id', {
+        templateUrl: 'views/movieDetail.html',
+        controller: 'MovieDetailCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });
+
+      //maxStockProvider.setMaxStock(500);
   });

@@ -1,8 +1,14 @@
 'use strict';
 
 angular.module('myAppApp')
-  .controller('ProductsCtrl', function ($scope, productService, $uibModal, $filter) {
-    $scope.products = productService.get();
+  .controller('ProductsCtrl', function ($scope, productFactory, $uibModal, $filter, maxStock, $route, personService, lang) {
+    $scope.products = productFactory.get();
+    
+    $scope.lang = lang;
+
+    productFactory.traemeAlgo = function() {
+        return "hola";
+    }
 
     $scope.clients = [
     	{id: 1, name: 'Fede', apellido: 'Snieg'},
@@ -10,15 +16,15 @@ angular.module('myAppApp')
     	{id: 3, name: 'Diego', apellido: 'Villagran'}
     ];
 
-    $scope.person1 = {
-    	name: 'Diego',
-    	text: 'Hola!'
-    };
+    personService.setNombre("diego");
+    personService.setApellido("villagran");
 
-    $scope.person2 = {
-    	name: 'Matias',
-    	text: 'Que haces!'
-    };
+    $scope.person1 = personService.getPersona();
+
+    personService.setNombre("matias");
+    personService.setApellido("macri");
+
+    $scope.person2 = personService.getPersona();
 
     $scope.showAlert = function() {
     	alert("hola!");

@@ -42,6 +42,7 @@
               <li class="active"><a href="#/">Home</a></li>
               <li><a ng-href="#/about">About</a></li>
               <li><a ng-href="#/products">Productos</a></li>
+              <li><a ng-href="#/movies">Peliculas</a></li>
             </ul>
           </div>
         </div>
@@ -88,11 +89,17 @@
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/app.js"></script>
-    <script src="scripts/services/productService.js"></script>
+    <script src="scripts/services/productFactory.js"></script>
+    <script src="scripts/services/maxStockProvider.js"></script>
+    <script src="scripts/services/personaService.js"></script>
+    <script src="scripts/services/productTypeFactory.js"></script>
+    <script src="scripts/services/movieFactory.js"></script>
     <script src="scripts/controllers/main.js"></script>
     <script src="scripts/controllers/about.js"></script>
     <script src="scripts/controllers/products.js"></script>
     <script src="scripts/controllers/productDetail.js"></script>
+    <script src="scripts/controllers/movieDetail.js"></script>
+    <script src="scripts/controllers/movies.js"></script>
     <script src="scripts/filters/snakeCase.js"></script>
     <script src="scripts/filters/camelCase.js"></script>
     <script src="scripts/directives/myDirective/myDirective.js"></script>

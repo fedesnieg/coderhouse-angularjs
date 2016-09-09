@@ -8,7 +8,7 @@
  * Controller of the myAppApp
  */
 angular.module('myAppApp')
-  .controller('AboutCtrl', function ($scope) {
+  .controller('AboutCtrl', function ($scope, productFactory, personService) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -19,4 +19,6 @@ angular.module('myAppApp')
     	if(newVal === "fede")
 			alert(newVal);
     });
+
+    console.log(personService);
   });
